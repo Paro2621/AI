@@ -13,9 +13,6 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <Class IRI="#Actions"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Building"/>
     </Declaration>
     <Declaration>
@@ -34,25 +31,28 @@
         <Class IRI="#Location"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Robot"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Room"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#activateAlarm"/>
+        <ObjectProperty IRI="#callPolice"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#move"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#openDoor"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#scanPerson"/>
+        <ObjectProperty IRI="#canPerform"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#contains"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#detectPerson"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBuilding"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasFloor"/>
@@ -64,25 +64,37 @@
         <ObjectProperty IRI="#isConnectedTo"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Gico_srl"/>
+        <ObjectProperty IRI="#moveTo"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#mainBuilding"/>
+        <ObjectProperty IRI="#scanPerson"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#minibar"/>
+        <DataProperty IRI="#IsOccupied"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#office_1"/>
+        <NamedIndividual IRI="#building_mainBuilding"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#showroom"/>
+        <NamedIndividual IRI="#floor_1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#toilet"/>
+        <NamedIndividual IRI="#location_GicoSRL"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#1st_floor"/>
+        <NamedIndividual IRI="#robot_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#room_corridor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#room_minibar"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#room_showroom"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#room_toilet"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="#Building"/>
@@ -97,7 +109,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Employee"/>
-        <Class IRI="#Entities"/>
+        <Class IRI="#Person"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Floor"/>
@@ -112,6 +124,10 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Intruder"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
         <Class IRI="#Entities"/>
     </SubClassOf>
     <SubClassOf>
@@ -129,78 +145,88 @@
             <Class IRI="#Room"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#activateAlarm"/>
-        <Class IRI="#Actions"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#move"/>
-        <Class IRI="#Actions"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#openDoor"/>
-        <Class IRI="#Actions"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#scanPerson"/>
-        <Class IRI="#Actions"/>
-    </SubClassOf>
     <DisjointClasses>
-        <Class IRI="#Actions"/>
-        <Class IRI="#Entities"/>
+        <Class IRI="#Building"/>
+        <Class IRI="#Floor"/>
     </DisjointClasses>
     <DisjointClasses>
-        <Class IRI="#Actions"/>
-        <Class IRI="#Location"/>
+        <Class IRI="#Building"/>
+        <Class IRI="#Room"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#Entities"/>
         <Class IRI="#Location"/>
     </DisjointClasses>
-    <ClassAssertion>
-        <Class IRI="#Location"/>
-        <NamedIndividual IRI="#Gico_srl"/>
-    </ClassAssertion>
+    <DisjointClasses>
+        <Class IRI="#Floor"/>
+        <Class IRI="#Room"/>
+    </DisjointClasses>
     <ClassAssertion>
         <Class IRI="#Building"/>
-        <NamedIndividual IRI="#mainBuilding"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Room"/>
-        <NamedIndividual IRI="#minibar"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Room"/>
-        <NamedIndividual IRI="#showroom"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Room"/>
-        <NamedIndividual IRI="#toilet"/>
+        <NamedIndividual IRI="#building_mainBuilding"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Floor"/>
-        <NamedIndividual IRI="#1st_floor"/>
+        <NamedIndividual IRI="#floor_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Location"/>
+        <NamedIndividual IRI="#location_GicoSRL"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Robot"/>
+        <NamedIndividual IRI="#robot_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Room"/>
+        <NamedIndividual IRI="#room_corridor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Room"/>
+        <NamedIndividual IRI="#room_minibar"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasFloor"/>
-        <NamedIndividual IRI="#mainBuilding"/>
-        <NamedIndividual IRI="#1st_floor"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isConnectedTo"/>
-        <NamedIndividual IRI="#minibar"/>
-        <NamedIndividual IRI="#toilet"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isConnectedTo"/>
-        <NamedIndividual IRI="#showroom"/>
-        <NamedIndividual IRI="#minibar"/>
+        <NamedIndividual IRI="#building_mainBuilding"/>
+        <NamedIndividual IRI="#floor_1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasRoom"/>
-        <NamedIndividual IRI="#1st_floor"/>
-        <NamedIndividual IRI="#showroom"/>
+        <NamedIndividual IRI="#floor_1"/>
+        <NamedIndividual IRI="#room_showroom"/>
     </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasBuilding"/>
+        <NamedIndividual IRI="#location_GicoSRL"/>
+        <NamedIndividual IRI="#building_mainBuilding"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <NamedIndividual IRI="#room_corridor"/>
+        <NamedIndividual IRI="#room_minibar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <NamedIndividual IRI="#room_minibar"/>
+        <NamedIndividual IRI="#room_showroom"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <NamedIndividual IRI="#room_toilet"/>
+        <NamedIndividual IRI="#room_corridor"/>
+    </ObjectPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#callPolice"/>
+        <ObjectProperty IRI="#canPerform"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#detectPerson"/>
+        <ObjectProperty IRI="#canPerform"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasBuilding"/>
+        <ObjectProperty IRI="#contains"/>
+    </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasFloor"/>
         <ObjectProperty IRI="#contains"/>
@@ -208,13 +234,30 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasRoom"/>
         <ObjectProperty IRI="#contains"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#moveTo"/>
+        <ObjectProperty IRI="#canPerform"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#scanPerson"/>
+        <ObjectProperty IRI="#canPerform"/>
     </SubObjectPropertyOf>
     <SymmetricObjectProperty>
         <ObjectProperty IRI="#isConnectedTo"/>
     </SymmetricObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#contains"/>
-    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#canPerform"/>
+        <Class IRI="#Robot"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#detectPerson"/>
+        <Class IRI="#Room"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBuilding"/>
+        <Class IRI="#Location"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasFloor"/>
         <Class IRI="#Building"/>
@@ -228,6 +271,10 @@
         <Class IRI="#Room"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBuilding"/>
+        <Class IRI="#Building"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasFloor"/>
         <Class IRI="#Floor"/>
     </ObjectPropertyRange>
@@ -239,6 +286,21 @@
         <ObjectProperty IRI="#isConnectedTo"/>
         <Class IRI="#Room"/>
     </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#hasRoom"/>
+            <ObjectProperty IRI="#isConnectedTo"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#hasRoom"/>
+    </SubObjectPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#IsOccupied"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <DataPropertyRange>
+        <DataProperty IRI="#IsOccupied"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
 </Ontology>
 
 
