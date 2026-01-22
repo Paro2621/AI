@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/gico/ontologies/2026/0/AI_assignment_suirvellance_robot"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/gico/ontologies/2026/0/AI_assignment_suirvellance_robot">
+    <Prefix name="" IRI="http://www.semanticweb.org/gico/ontologies/2026/0/AI_assignment_suirvellance_robot/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Actions"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Building"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Employee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Entities"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Floor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Intruder"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Location"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Robot"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Room"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#activateAlarm"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#move"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#openDoor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#scanPerson"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contains"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFloor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRoom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isConnectedTo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Gico_srl"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#mainBuilding"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#minibar"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#office_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#showroom"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#toilet"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1st_floor"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <Class IRI="#Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasFloor"/>
+            <Class IRI="#Floor"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Employee"/>
+        <Class IRI="#Entities"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Floor"/>
+        <Class IRI="#Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Floor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasRoom"/>
+            <Class IRI="#Room"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Intruder"/>
+        <Class IRI="#Entities"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Robot"/>
+        <Class IRI="#Entities"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Room"/>
+        <Class IRI="#Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Room"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isConnectedTo"/>
+            <Class IRI="#Room"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#activateAlarm"/>
+        <Class IRI="#Actions"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#move"/>
+        <Class IRI="#Actions"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#openDoor"/>
+        <Class IRI="#Actions"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#scanPerson"/>
+        <Class IRI="#Actions"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Actions"/>
+        <Class IRI="#Entities"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Actions"/>
+        <Class IRI="#Location"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Entities"/>
+        <Class IRI="#Location"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Location"/>
+        <NamedIndividual IRI="#Gico_srl"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Building"/>
+        <NamedIndividual IRI="#mainBuilding"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Room"/>
+        <NamedIndividual IRI="#minibar"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Room"/>
+        <NamedIndividual IRI="#showroom"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Room"/>
+        <NamedIndividual IRI="#toilet"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Floor"/>
+        <NamedIndividual IRI="#1st_floor"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasFloor"/>
+        <NamedIndividual IRI="#mainBuilding"/>
+        <NamedIndividual IRI="#1st_floor"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <NamedIndividual IRI="#minibar"/>
+        <NamedIndividual IRI="#toilet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <NamedIndividual IRI="#showroom"/>
+        <NamedIndividual IRI="#minibar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasRoom"/>
+        <NamedIndividual IRI="#1st_floor"/>
+        <NamedIndividual IRI="#showroom"/>
+    </ObjectPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFloor"/>
+        <ObjectProperty IRI="#contains"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasRoom"/>
+        <ObjectProperty IRI="#contains"/>
+    </SubObjectPropertyOf>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#isConnectedTo"/>
+    </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#contains"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFloor"/>
+        <Class IRI="#Building"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRoom"/>
+        <Class IRI="#Floor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <Class IRI="#Room"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFloor"/>
+        <Class IRI="#Floor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRoom"/>
+        <Class IRI="#Room"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <Class IRI="#Room"/>
+    </ObjectPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
