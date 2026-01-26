@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/securityPatrol#"
+     xml:base="http://example.org/securityPatrol"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://example.org/securityPatrol"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/securityPatrol#connectedTo -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/securityPatrol#connectedTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/securityPatrol#Area"/>
+        <rdfs:range rdf:resource="http://example.org/securityPatrol#Area"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/securityPatrol#hasAccessElement -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/securityPatrol#hasAccessElement">
+        <rdfs:domain rdf:resource="http://example.org/securityPatrol#Area"/>
+        <rdfs:range rdf:resource="http://example.org/securityPatrol#AccessElement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/securityPatrol#hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/securityPatrol#hasPart">
+        <rdfs:domain rdf:resource="http://example.org/securityPatrol#Building"/>
+        <rdfs:range rdf:resource="http://example.org/securityPatrol#Area"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/securityPatrol#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/securityPatrol#locatedIn">
+        <rdfs:domain rdf:resource="http://example.org/securityPatrol#Area"/>
+        <rdfs:range rdf:resource="http://example.org/securityPatrol#Building"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/securityPatrol#monitoredBy -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/securityPatrol#monitoredBy">
+        <rdfs:domain rdf:resource="http://example.org/securityPatrol#Area"/>
+        <rdfs:range rdf:resource="http://example.org/securityPatrol#Camera"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/securityPatrol#canBeOpened -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/securityPatrol#canBeOpened">
+        <rdfs:domain rdf:resource="http://example.org/securityPatrol#AccessElement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/securityPatrol#canStayInside -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/securityPatrol#canStayInside">
+        <rdfs:domain rdf:resource="http://example.org/securityPatrol#Area"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/securityPatrol#hasAreaID -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/securityPatrol#hasAreaID">
+        <rdfs:domain rdf:resource="http://example.org/securityPatrol#Area"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/securityPatrol#hasRiskLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/securityPatrol#hasRiskLevel">
+        <rdfs:domain rdf:resource="http://example.org/securityPatrol#Area"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment>the risk value is indicated by an integer following this description:
+low = 1 
+medium = 2
+high = 3</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/securityPatrol#isRestricted -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/securityPatrol#isRestricted">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/securityPatrol#Area"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/securityPatrol#AccessElement -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#AccessElement"/>
+    
+
+
+    <!-- http://example.org/securityPatrol#Area -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Area"/>
+    
+
+
+    <!-- http://example.org/securityPatrol#Building -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Building"/>
+    
+
+
+    <!-- http://example.org/securityPatrol#Camera -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Camera"/>
+    
+
+
+    <!-- http://example.org/securityPatrol#Courtyard -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Courtyard">
+        <rdfs:subClassOf rdf:resource="http://example.org/securityPatrol#OutdoorArea"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/securityPatrol#Door -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Door">
+        <rdfs:subClassOf rdf:resource="http://example.org/securityPatrol#AccessElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/securityPatrol#Floor -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Floor"/>
+    
+
+
+    <!-- http://example.org/securityPatrol#Gate -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Gate">
+        <rdfs:subClassOf rdf:resource="http://example.org/securityPatrol#AccessElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/securityPatrol#Office -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Office">
+        <rdfs:subClassOf rdf:resource="http://example.org/securityPatrol#Room"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/securityPatrol#OutdoorArea -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#OutdoorArea">
+        <rdfs:subClassOf rdf:resource="http://example.org/securityPatrol#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/securityPatrol#Parking -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Parking">
+        <rdfs:subClassOf rdf:resource="http://example.org/securityPatrol#OutdoorArea"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/securityPatrol#ProductionPlant -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#ProductionPlant">
+        <rdfs:subClassOf rdf:resource="http://example.org/securityPatrol#Room"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/securityPatrol#Room -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Room">
+        <rdfs:subClassOf rdf:resource="http://example.org/securityPatrol#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/securityPatrol#Warehouse -->
+
+    <owl:Class rdf:about="http://example.org/securityPatrol#Warehouse">
+        <rdfs:subClassOf rdf:resource="http://example.org/securityPatrol#Room"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/securityPatrol#Gico_SRL -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/securityPatrol#Gico_SRL"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
