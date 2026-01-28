@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/gico/ontologies/2026/0/AI_assignment_suirvellance_robot"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/gico/ontologies/2026/0/AI_assignment_suirvellance_robot">
+    <Prefix name="" IRI="http://www.semanticweb.org/gico/ontologies/2026/0/AI_assignment_suirvellance_robot/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Building"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Door"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Floor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Room"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Stairs"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Unit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#featuresVerticalUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBuilding"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFloor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isConnectedTo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#doorProperties"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isLocked"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#building_mainBuilding"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#door_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#door_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#floor_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#floor_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#room_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#room_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#room_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#room_4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#room_5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#stairs_1"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Building"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasFloor"/>
+            <Class IRI="#Floor"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Door"/>
+        <Class IRI="#Unit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Door"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isConnectedTo"/>
+            <Class IRI="#Unit"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Door"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#isLocked"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Floor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasUnit"/>
+            <Class IRI="#Stairs"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Room"/>
+        <Class IRI="#Unit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Room"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isConnectedTo"/>
+            <Class IRI="#Unit"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Building"/>
+        <Class IRI="#Door"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Building"/>
+        <Class IRI="#Floor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Building"/>
+        <Class IRI="#Room"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Door"/>
+        <Class IRI="#Floor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Door"/>
+        <Class IRI="#Room"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Floor"/>
+        <Class IRI="#Room"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Building"/>
+        <NamedIndividual IRI="#building_mainBuilding"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Door"/>
+        <NamedIndividual IRI="#door_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Door"/>
+        <NamedIndividual IRI="#door_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Floor"/>
+        <NamedIndividual IRI="#floor_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Floor"/>
+        <NamedIndividual IRI="#floor_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Room"/>
+        <NamedIndividual IRI="#room_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Room"/>
+        <NamedIndividual IRI="#room_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Room"/>
+        <NamedIndividual IRI="#room_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Room"/>
+        <NamedIndividual IRI="#room_4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Room"/>
+        <NamedIndividual IRI="#room_5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Stairs"/>
+        <NamedIndividual IRI="#stairs_1"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasFloor"/>
+        <NamedIndividual IRI="#building_mainBuilding"/>
+        <NamedIndividual IRI="#floor_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <NamedIndividual IRI="#door_1"/>
+        <NamedIndividual IRI="#room_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <NamedIndividual IRI="#door_2"/>
+        <NamedIndividual IRI="#room_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasUnit"/>
+        <NamedIndividual IRI="#floor_1"/>
+        <NamedIndividual IRI="#room_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasUnit"/>
+        <NamedIndividual IRI="#floor_2"/>
+        <NamedIndividual IRI="#room_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <NamedIndividual IRI="#room_1"/>
+        <NamedIndividual IRI="#door_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#featuresVerticalUnit"/>
+        <NamedIndividual IRI="#room_2"/>
+        <NamedIndividual IRI="#stairs_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <NamedIndividual IRI="#room_2"/>
+        <NamedIndividual IRI="#door_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#featuresVerticalUnit"/>
+        <NamedIndividual IRI="#room_4"/>
+        <NamedIndividual IRI="#stairs_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <NamedIndividual IRI="#room_4"/>
+        <NamedIndividual IRI="#room_5"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isLocked"/>
+        <NamedIndividual IRI="#door_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isLocked"/>
+        <NamedIndividual IRI="#door_2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasBuilding"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFloor"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasUnit"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#isConnectedTo"/>
+    </SymmetricObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#featuresVerticalUnit"/>
+        <Class IRI="#Unit"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFloor"/>
+        <Class IRI="#Building"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasUnit"/>
+        <Class IRI="#Floor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <Class IRI="#Unit"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#featuresVerticalUnit"/>
+        <Class IRI="#Stairs"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBuilding"/>
+        <Class IRI="#Building"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFloor"/>
+        <Class IRI="#Floor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isConnectedTo"/>
+        <Class IRI="#Unit"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#hasFloor"/>
+            <ObjectProperty IRI="#featuresVerticalUnit"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#hasFloor"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#hasUnit"/>
+            <ObjectProperty IRI="#featuresVerticalUnit"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#hasUnit"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#hasUnit"/>
+            <ObjectProperty IRI="#isConnectedTo"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#hasUnit"/>
+    </SubObjectPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#isLocked"/>
+        <DataProperty IRI="#doorProperties"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#isLocked"/>
+        <Class IRI="#Door"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#isLocked"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isConnectedTo</IRI>
+        <Literal>It means not only that from an Unit i can reach another Unit but also that they share the same floor</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
