@@ -19,6 +19,9 @@
         <Class IRI="#Complex"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Connectives"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Door"/>
     </Declaration>
     <Declaration>
@@ -38,6 +41,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Unit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Volumes"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Zone"/>
@@ -67,16 +73,10 @@
         <ObjectProperty IRI="#isOuterConnectedTo"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#canStay"/>
-    </Declaration>
-    <Declaration>
         <DataProperty IRI="#doorProperties"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#isLocked"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#unitProperties"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#building_mainBuilding"/>
@@ -199,8 +199,12 @@
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Door"/>
+        <Class IRI="#Connectives"/>
         <Class IRI="#Unit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Door"/>
+        <Class IRI="#Connectives"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Door"/>
@@ -208,13 +212,6 @@
             <ObjectProperty IRI="#isInnerConnectedTo"/>
             <Class IRI="#Unit"/>
         </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Door"/>
-        <DataHasValue>
-            <DataProperty IRI="#canStay"/>
-            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
-        </DataHasValue>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Door"/>
@@ -232,7 +229,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#OutdoorUnit"/>
-        <Class IRI="#Unit"/>
+        <Class IRI="#Volumes"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#OutdoorZone"/>
@@ -240,7 +237,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Room"/>
-        <Class IRI="#Unit"/>
+        <Class IRI="#Volumes"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Room"/>
@@ -251,45 +248,63 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Stairs"/>
-        <Class IRI="#Unit"/>
+        <Class IRI="#Connectives"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Stairs"/>
-        <DataHasValue>
-            <DataProperty IRI="#canStay"/>
-            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
-        </DataHasValue>
-    </SubClassOf>
-    <SubClassOf>
+        <Class IRI="#Volumes"/>
         <Class IRI="#Unit"/>
-        <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#canStay"/>
-            <Datatype abbreviatedIRI="xsd:boolean"/>
-        </DataExactCardinality>
     </SubClassOf>
-    <DisjointClasses>
-        <Class IRI="#Building"/>
-        <Class IRI="#Floor"/>
-    </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#Building"/>
         <Class IRI="#OutdoorZone"/>
     </DisjointClasses>
     <DisjointClasses>
-        <Class IRI="#Building"/>
+        <Class IRI="#Complex"/>
+        <Class IRI="#Floor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Complex"/>
         <Class IRI="#Unit"/>
     </DisjointClasses>
     <DisjointClasses>
+        <Class IRI="#Complex"/>
+        <Class IRI="#Zone"/>
+    </DisjointClasses>
+    <DisjointClasses>
         <Class IRI="#Door"/>
-        <Class IRI="#Floor"/>
+        <Class IRI="#OutdoorUnit"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#Door"/>
         <Class IRI="#Room"/>
     </DisjointClasses>
     <DisjointClasses>
+        <Class IRI="#Door"/>
+        <Class IRI="#Stairs"/>
+    </DisjointClasses>
+    <DisjointClasses>
         <Class IRI="#Floor"/>
+        <Class IRI="#Unit"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Floor"/>
+        <Class IRI="#Zone"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#OutdoorUnit"/>
         <Class IRI="#Room"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#OutdoorUnit"/>
+        <Class IRI="#Stairs"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Room"/>
+        <Class IRI="#Stairs"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Unit"/>
+        <Class IRI="#Zone"/>
     </DisjointClasses>
     <ClassAssertion>
         <Class IRI="#Building"/>
@@ -679,10 +694,6 @@
         <ObjectProperty IRI="#hasUnit"/>
     </SubObjectPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#canStay"/>
-        <DataProperty IRI="#unitProperties"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
         <DataProperty IRI="#isLocked"/>
         <DataProperty IRI="#doorProperties"/>
     </SubDataPropertyOf>
@@ -705,7 +716,7 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>canReach_DoorConnection</Literal>
+            <Literal>canReach_door</Literal>
         </Annotation>
         <Body>
             <ClassAtom>
@@ -751,7 +762,7 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>canReach_InnerOuter</Literal>
+            <Literal>canReach_innerOuter</Literal>
         </Annotation>
         <Body>
             <ClassAtom>
@@ -797,7 +808,7 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>isInZone_cascade_door</Literal>
+            <Literal>isInZone_door</Literal>
         </Annotation>
         <Body>
             <ObjectPropertyAtom>
@@ -839,11 +850,11 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>Stairs_EnterRule</Literal>
+            <Literal>canReach_stairs_enter</Literal>
         </Annotation>
         <Body>
             <ClassAtom>
-                <Class IRI="#Room"/>
+                <Class IRI="#Volumes"/>
                 <Variable IRI="/r"/>
             </ClassAtom>
             <ObjectPropertyAtom>
@@ -871,11 +882,11 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>canReach_DirectConnection</Literal>
+            <Literal>canReach_direct</Literal>
         </Annotation>
         <Body>
             <ClassAtom>
-                <Class IRI="#Unit"/>
+                <Class IRI="#Volumes"/>
                 <Variable IRI="/r1"/>
             </ClassAtom>
             <ObjectPropertyAtom>
@@ -884,7 +895,7 @@
                 <Variable IRI="/r2"/>
             </ObjectPropertyAtom>
             <ClassAtom>
-                <Class IRI="#Unit"/>
+                <Class IRI="#Volumes"/>
                 <Variable IRI="/r2"/>
             </ClassAtom>
         </Body>
@@ -907,7 +918,7 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>Stairs_ExitRule</Literal>
+            <Literal>canReach_stairs_exit</Literal>
         </Annotation>
         <Body>
             <ObjectPropertyAtom>
@@ -935,7 +946,7 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>isInZone_cascade_stairs</Literal>
+            <Literal>isInZone_stairs</Literal>
         </Annotation>
         <Body>
             <ObjectPropertyAtom>
@@ -1006,7 +1017,45 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>isInZone_cascade_direct</Literal>
+            <Literal>hasZone</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasZone"/>
+                <Variable IRI="/c"/>
+                <Variable IRI="/z"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#isInZone"/>
+                <Variable IRI="/u1"/>
+                <Variable IRI="/z"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#isOuterConnectedTo"/>
+                <Variable IRI="/u1"/>
+                <Variable IRI="/u2"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasZone"/>
+                <Variable IRI="/c"/>
+                <Variable IRI="/z"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>isInZone_direct</Literal>
         </Annotation>
         <Body>
             <ObjectPropertyAtom>
