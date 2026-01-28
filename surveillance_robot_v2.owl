@@ -58,6 +58,9 @@
         <ObjectProperty IRI="#hasZone"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#isInZone"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#isInnerConnectedTo"/>
     </Declaration>
     <Declaration>
@@ -180,7 +183,7 @@
         <Class IRI="#Complex"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#hasZone"/>
-            <Class IRI="#Building"/>
+            <Class IRI="#Zone"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -574,26 +577,6 @@
         <NamedIndividual IRI="#door_06"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
     </DataPropertyAssertion>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#canReach"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasFloor"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasUnit"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasZone"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#isOuterConnectedTo"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
     <SymmetricObjectProperty>
         <ObjectProperty IRI="#canReach"/>
     </SymmetricObjectProperty>
@@ -623,7 +606,15 @@
         <Class IRI="#Complex"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isInZone"/>
+        <Class IRI="#Unit"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#isInnerConnectedTo"/>
+        <Class IRI="#Unit"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isOuterConnectedTo"/>
         <Class IRI="#Unit"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
@@ -639,7 +630,15 @@
         <Class IRI="#Zone"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#isInZone"/>
+        <Class IRI="#Zone"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#isInnerConnectedTo"/>
+        <Class IRI="#Unit"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isOuterConnectedTo"/>
         <Class IRI="#Unit"/>
     </ObjectPropertyRange>
     <SubObjectPropertyOf>
@@ -706,6 +705,52 @@
             </ClassAtom>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#isInnerConnectedTo"/>
+                <Variable IRI="/r1"/>
+                <Variable IRI="/d"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Door"/>
+                <Variable IRI="/d"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isLocked"/>
+                <Variable IRI="/d"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#isInnerConnectedTo"/>
+                <Variable IRI="/d"/>
+                <Variable IRI="/r2"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canReach"/>
+                <Variable IRI="/r1"/>
+                <Variable IRI="/r2"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>InnerOuterConnected</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#OutdoorUnit"/>
+                <Variable IRI="/r1"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#isOuterConnectedTo"/>
                 <Variable IRI="/r1"/>
                 <Variable IRI="/d"/>
             </ObjectPropertyAtom>
