@@ -230,13 +230,6 @@
         </DataExactCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Floor"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#hasUnit"/>
-            <Class IRI="#Stairs"/>
-        </ObjectMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#OutdoorUnit"/>
         <Class IRI="#Volumes"/>
     </SubClassOf>
@@ -322,6 +315,10 @@
     <ClassAssertion>
         <Class IRI="#Building"/>
         <NamedIndividual IRI="#building_warehouse"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Complex"/>
+        <NamedIndividual IRI="#complex_GicoSRL"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Door"/>
@@ -617,7 +614,7 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#isLocked"/>
         <NamedIndividual IRI="#door_04"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isLocked"/>
@@ -627,7 +624,7 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#isLocked"/>
         <NamedIndividual IRI="#door_06"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <SymmetricObjectProperty>
         <ObjectProperty IRI="#canReach"/>
